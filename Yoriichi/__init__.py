@@ -5,7 +5,6 @@ import time
 import asyncio
 import logging
 import telegram.ext as tg
-from inspect import getfullargspec
 from telethon import TelegramClient
 from telethon.sessions import MemorySession
 from pyrogram.types import Message, Chat, User
