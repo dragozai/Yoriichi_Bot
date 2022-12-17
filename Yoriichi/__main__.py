@@ -31,7 +31,7 @@ from Yoriichi import (
 )
 
 from Yoriichi.modules import ALL_MODULES
-from Yoriichi.modules.helper_funcs.chat_status import is_user_admin
+from Yoriichi.handlers.chat_status import is_user_admin
 from Yoriichi.modules.helper_funcs.misc import paginate_modules
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
