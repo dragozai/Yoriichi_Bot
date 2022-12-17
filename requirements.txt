@@ -3,6 +3,8 @@ base58
 motor
 python-telegram-bot==13.14
 pyrogram==2.0.59
+psycopg2-binary
+pyrate-limiter
 pymongo
 telegraph
 telethon==1.24.0
