@@ -16,7 +16,7 @@ from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid, ChannelInv
 StartTime = time.time()
 
 def get_user_list(__init__, key):
-    with open("{}/RukaRobot/{}".format(os.getcwd(), __init__), "r") as json_file:
+    with open("{}/Yoriichi/{}".format(os.getcwd(), __init__), "r") as json_file:
         return json.loaimport timeimport timed(json_file)[key]
 
 
