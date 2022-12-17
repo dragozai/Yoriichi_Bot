@@ -6,7 +6,7 @@ import time
 import re
 import sys
 import traceback
-import Yoriichi.modules.sql.users_sql as sql
+import Yoriichi.database.sql.users_sql as sql
 from sys import argv
 from typing import Optional
 from telegram import __version__ as peler
