@@ -18,7 +18,7 @@ class Config(object):
     BOT_USERNAME = "Yorichi_Bot"
     BOT_ID = "5048663657"
   # SUPPORT_CHAT = "TanjirouXSupport"
-    DATABASE_URL = "postgresql://postgres:mnvmwbYAH79GYh6RA0dS@containers-us-west-31.railway.app:5607/railway"  # needed for any database modules
+    DATABASE_URL = "postgresql://postgres:mnvmwbYAH79GYh6RA0dS@containers-us-west-31.railway.app:5607/railway"
     LOAD = []
     NO_LOAD = "rss"
     WEBHOOK = False
@@ -34,7 +34,7 @@ class Config(object):
     ALLOW_CHATS = True
     MONGO_DB_URI = "mongodb+srv://Tanjirou:Tanji_67@cluster0.gsfly.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
     WALL_API = (
-        "6950f559377140a4e1594c564cdca6a3"  #For wallpapers, get one from https://wall.alphacoders.com/api.php
+        "6950f559377140a4e1594c564cdca6a3"
     )
     REM_BG_API_KEY = "wZsgx3gpTYtgCRj5JHpB9bYY" 
     TEMP_DOWNLOAD_DIRECTORY = "/tmp"
