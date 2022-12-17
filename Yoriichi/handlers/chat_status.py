@@ -273,25 +273,6 @@ def can_restrict(func):
     return restrict_rights
 
 
-def user_can_ban(func):
-    @wraps(func)
-    def user_is_banhammer(update: Update, context: CallbackContext, *args, **kwargs):
-        bot = context.bot
-        user = update.effective_user.id
-        member = update.effective_chat.get_member(user)
-        if (
-            not (member.can_restrict_members or member.status == "creator")
-            and user not in THUNDERS
-            and user not in [777000, 1087968824]
-        ):
-            update.effective_message.reply_text(
-                "Sorry son, but you're not worthy to wield the banhammer.",
-            )
-            return ""
-        return func(update, context, *args, **kwargs)
-
-    return user_is_banhammer
-
 def user_can_restrict_no_reply(func):
     @wraps(func)
     def u_can_restrict_noreply(
@@ -306,7 +287,7 @@ def user_can_restrict_no_reply(func):
             if (
                 member.can_restrict_members
                 or member.status == "creator"
-                or user.id in THUNDERS
+                or user.id in DEV_USERS
             ): 
                return func(update, context, *args, **kwargs)
             elif member.status == 'administrator':
