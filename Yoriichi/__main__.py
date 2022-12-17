@@ -1,6 +1,6 @@
 
 
-
+def main():
 
 if WEBHOOK:
         LOGGER.info("Using webhooks.")
