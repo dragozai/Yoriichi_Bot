@@ -1,6 +1,7 @@
 asyncio
 base58
 motor
+logging
 python-telegram-bot==13.14
 pyrogram==2.0.59
 pymongo
