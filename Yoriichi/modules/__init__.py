@@ -1,41 +1,44 @@
-import os
-from os.path import basename, dirname, isfile
+from Yoriichi import LOAD, NO_LOAD, LOGGER
+import sys
 
 
-def getListOfFiles(dirName):
-    # create a list of file and sub directories 
-    # names in the given directory 
-    listOfFile = os.listdir(dirName)
-    allFiles = list()
-    # Iterate over all the entries
-    for entry in listOfFile:
-        # Create full path
-        fullPath = os.path.join(dirName, entry)
-        if '__pycache__' not in fullPath:
-            if os.path.isdir(fullPath):
-                allFiles = allFiles + getListOfFiles(fullPath)
-            else:
-                allFiles.append(fullPath)
-                
-    return allFiles
+def __list_all_modules():
+    from os.path import dirname, basename, isfile
+    import glob
 
-mod_paths = getListOfFiles(dirName=dirname(__file__))
-
-all_modules = [
-        f[:-3]
-        for f in mod_paths
-        if isfile(f) and f.endswith(".py") and not f.endswith("__init__.py")
-    ]
-
-module_names = [
+    # This generates a list of modules in this folder for the * in __main__ to work.
+    mod_paths = glob.glob(dirname(__file__) + "/*.py")
+    all_modules = [
         basename(f)[:-3]
         for f in mod_paths
         if isfile(f) and f.endswith(".py") and not f.endswith("__init__.py")
     ]
 
-print(
-    ("INFO - "
-    f"{', '.join(module_names)} - MODULES LOADED")
-)
-ALL_MODULES = sorted(all_modules)
+    if LOAD or NO_LOAD:
+        to_load = LOAD
+        if to_load:
+            if not all(
+                any(mod == module_name for module_name in all_modules)
+                for mod in to_load
+            ):
+                LOGGER.error("[RUKA] Invalid loadorder names. Quitting.")
+                sys.exit(1)
+
+            all_modules = sorted(set(all_modules) - set(to_load))
+            to_load = list(all_modules) + to_load
+
+        else:
+            to_load = all_modules
+
+        if NO_LOAD:
+            LOGGER.info("[RUKA] Not loading: {}".format(NO_LOAD))
+            return [item for item in to_load if item not in NO_LOAD]
+
+        return to_load
+
+    return all_modules
+
+
+ALL_MODULES = __list_all_modules()
+LOGGER.info("[RUKA] Modules to load: %s", str(ALL_MODULES))
 __all__ = ALL_MODULES + ["ALL_MODULES"]
