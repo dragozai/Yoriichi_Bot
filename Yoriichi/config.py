@@ -10,13 +10,13 @@ def get_user_list(config, key):
 class Config(object):
     LOGGER = True
 
-    API_ID = 4645306
-    API_HASH = "23084ea16ef78eaa349a1e7edb597188"
-    TOKEN = "5048663657:AAEY4OSqiPYKQedL6WGcc3-ol2WJEEunVEI" 
-    OWNER_ID = "5069705982"
+    API_ID = 18296791
+    API_HASH = "78c2a9da388b87db12733f9ef34e26c0"
+    TOKEN = "5414509640:AAH8qlnS9bL0Ac7M7XyNQjsZfDx54A9ApA8" 
+    OWNER_ID = "5020805558"
     OWNER_USERNAME = "Ryuuzai"
     BOT_USERNAME = "Yorichi_Bot"
-    BOT_ID = "5048663657"
+    BOT_ID = "5414509640"
   # SUPPORT_CHAT = "TanjirouXSupport"
     DATABASE_URL = "postgresql://postgres:mnvmwbYAH79GYh6RA0dS@containers-us-west-31.railway.app:5607/railway"
     LOAD = []
