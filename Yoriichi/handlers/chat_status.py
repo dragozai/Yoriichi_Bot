@@ -5,7 +5,6 @@ from threading import RLock
 from Yoriichi import (
     DEL_CMDS,
     DEV_USERS,
-    SUPPORT_CHAT,
     dispatcher,
 )
 
