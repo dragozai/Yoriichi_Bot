@@ -13,22 +13,23 @@ from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid, ChannelInv
 
 
 StartTime = time.time()
+telegraph = Telegraph()
+telegraph.create_account(short_name='Ryuuzai')
+FORMAT = "[Yoriichi] %(message)s"
+LOGGER = logging.getLogger('[Yoriichi]')
+
 
 def get_user_list(__init__, key):
     with open("{}/Yoriichi/{}".format(os.getcwd(), __init__), "r") as json_file:
         return json.loaimport timeimport timed(json_file)[key]
 
 
-FORMAT = "[Yoriichi] %(message)s"
 logging.basicConfig(
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
     level=logging.INFO,
     format=FORMAT,
     datefmt="[%X]",
 )
-
-
-LOGGER = logging.getLogger('[Yoriichi]')
 
 if sys.version_info[0] < 3 or sys.version_info[1] < 9:
     LOGGER.error(
@@ -46,30 +47,12 @@ if ENV:
     except ValueError:
         raise Exception("Your OWNER_ID env variable is not a valid integer.")
 
-    JOIN_LOGGER = os.environ.get("JOIN_LOGGER", None)
-    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
-
     try:
-        DRAGONS = {int(x) for x in os.environ.get("DRAGONS", "").split()}
         DEV_USERS = {int(x) for x in os.environ.get("DEV_USERS", "").split()}
     except ValueError:
-        raise Exception("Your sudo or dev users list does not contain valid integers.")
+        raise Exception("Your Dev users list does not contain valid integers.")
 
-    try:
-        DEMONS = {int(x) for x in os.environ.get("DEMONS", "").split()}
-    except ValueError:
-        raise Exception("Your support users list does not contain valid integers.")
-
-    try:
-        WOLVES = {int(x) for x in os.environ.get("WOLVES", "").split()}
-    except ValueError: 
-        raise Exception("Your whitelisted users list does not contain valid integers.")
-
-    try:
-        TIGERS = {int(x) for x in os.environ.get("TIGERS", "").split()}
-    except ValueError:
-        raise Exception("Your tiger users list does not contain valid integers.")
-
+    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
     INFOPIC = bool(os.environ.get("INFOPIC", True))
     BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
     ERROR_LOGS = os.environ.get("ERROR_LOGS", None)
@@ -111,32 +94,13 @@ else:
     except ValueError:
         raise Exception("Your OWNER_ID variable is not a valid integer.")
 
-    JOIN_LOGGER = Config.JOIN_LOGGER
-    OWNER_USERNAME = Config.OWNER_USERNAME
-    ALLOW_CHATS = Config.ALLOW_CHATS
     try:
-        DRAGONS = {int(x) for x in Config.DRAGONS or []}
         DEV_USERS = {int(x) for x in Config.DEV_USERS or []}
     except ValueError:
-        raise Exception("Your sudo or dev users list does not contain valid integers.")
+        raise Exception("Your Dev users list does not contain valid integers.")
 
-    try:
-        DEMONS = {int(x) for x in Config.DEMONS or []}
-    except ValueError:
-        raise Exception("Your support users list does not contain valid integers.")
-
-    try:
-        WOLVES = {int(x) for x in Config.WOLVES or []}
-    except ValueError:
-        raise Exception("Your whitelisted users list does not contain valid integers.")
-
-    try:
-        TIGERS = {int(x) for x in Config.TIGERS or []}
-    except ValueError:
-        raise Exception("Your tiger users list does not contain valid integers.")
-
-
-    ERROR_LOGS = Config.ERROR_LOGS
+    OWNER_USERNAME = Config.OWNER_USERNAME
+    ALLOW_CHATS = Config.ALLOW_CHATS
     WEBHOOK = Config.WEBHOOK
     PORT = Config.PORT
     CERT_PATH = Config.CERT_PATH
@@ -211,13 +175,7 @@ async def eor(msg: Message, **kwargs):
     spec = getfullargspec(func.__wrapped__).args
     return await func(**{k: v for k, v in kwargs.items() if k in spec})
 
-
-DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
-WOLVES = list(WOLVES)
-DEMONS = list(DEMONS)
-TIGERS = list(TIGERS)
-
 
 from Yoriichi.modules.helper_funcs.handlers import (
     CustomCommandHandler,
