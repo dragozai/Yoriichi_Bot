@@ -1,7 +1,8 @@
 asyncio
 base58
+dnspython
 motor
-python-telegram-bot==13.14
+python-telegram-bot==13.11.0
 pyrogram==2.0.59
 psycopg2-binary
 pyrate-limiter
@@ -9,3 +10,5 @@ pymongo
 telegraph
 telethon==1.24.0
 TgCrypto
+requests
+
