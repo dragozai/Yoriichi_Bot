@@ -21,7 +21,7 @@ LOGGER = logging.getLogger('[Yoriichi]')
 
 def get_user_list(__init__, key):
     with open("{}/Yoriichi/{}".format(os.getcwd(), __init__), "r") as json_file:
-        return json.loaimport timeimport timed(json_file)[key]
+        return json.load(json_file)[key]
 
 
 logging.basicConfig(
