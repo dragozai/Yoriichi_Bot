@@ -177,7 +177,7 @@ async def eor(msg: Message, **kwargs):
 
 DEV_USERS = list(DEV_USERS)
 
-from Yoriichi.modules.helper_funcs.handlers import (
+from Yoriichi.handlers.handler import (
     CustomCommandHandler,
     CustomMessageHandler,
     CustomRegexHandler,
