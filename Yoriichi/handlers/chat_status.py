@@ -4,12 +4,8 @@ from cachetools import TTLCache
 from threading import RLock
 from Yoriichi import (
     DEL_CMDS,
-    FLAMES,
-    THUNDERS,
+    DEV_USERS,
     SUPPORT_CHAT,
-    WINDS,
-    WATERS,
-    BEASTS,
     dispatcher,
 )
 
