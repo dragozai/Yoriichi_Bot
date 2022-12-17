@@ -18,7 +18,7 @@ class Config(object):
     BOT_USERNAME = "Yorichi_Bot"
     BOT_ID = "5414509640"
   # SUPPORT_CHAT = "TanjirouXSupport"
-    DATABASE_URL = "postgresql://postgres:mnvmwbYAH79GYh6RA0dS@containers-us-west-31.railway.app:5607/railway"
+    DATABASE_URL = "postgresql://postgres:nYbgKJUTk0MGu3G9dGcq@containers-us-west-147.railway.app:7515/railway"
     LOAD = []
     NO_LOAD = "rss"
     WEBHOOK = False
@@ -32,7 +32,7 @@ class Config(object):
     BAN_STICKER = ""
     ALLOW_EXCL = True 
     ALLOW_CHATS = True
-    MONGO_DB_URI = "mongodb+srv://Tanjirou:Tanji_67@cluster0.gsfly.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    MONGO_DB_URI = "mongodb+srv://Bot:bot@cluster0.lvw7j.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
     WALL_API = (
         "6950f559377140a4e1594c564cdca6a3"
     )
