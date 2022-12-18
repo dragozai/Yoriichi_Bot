@@ -112,7 +112,7 @@ else:
     NO_LOAD = Config.NO_LOAD
     DEL_CMDS = Config.DEL_CMDS
     WORKERS = Config.WORKERS
-    REM_BG_API_KEY = Config.REM_BG_API_KEY
+ #   REM_BG_API_KEY = Config.REM_BG_API_KEY
     BAN_STICKER = Config.BAN_STICKER
     ALLOW_EXCL = Config.ALLOW_EXCL
 #   WALL_API = Config.WALL_API
@@ -140,7 +140,7 @@ pgram = Client(
     workers=min(32, os.cpu_count() + 4),
 )
 apps = []
-apps.append(pbot)
+apps.append(pgram)
 loop = asyncio.get_event_loop()
 
 async def get_entity(client, entity):
